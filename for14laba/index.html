@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CORS Test</title>
+</head>
+<body>
+    <button id="makeRequestButton">
+        Make Request
+    </button>
+    <h1 id="response"></h1>
+    <script defer>
+        document.getElementById('makeRequestButton').addEventListener('click', function() {
+            fetch('https://localhost:7058/My')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('response').innerText = data;
+                })
+                .catch(error => {
+                    document.getElementById('response').innerText = 'Error: ' + error;
+                });
+        });
+    </script>
+</body>
+</html>
